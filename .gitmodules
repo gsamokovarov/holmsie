@@ -1,0 +1,6 @@
+[submodule "addon-sdk"]
+	path = addon-sdk
+	url = https://github.com/mozilla/addon-sdk.git
+[submodule "data/holmes"]
+	path = data/holmes
+	url = https://github.com/redroot/holmes
