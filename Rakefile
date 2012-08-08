@@ -5,6 +5,7 @@ task :env do
 end
 
 task :build do
+  Dir.mkdir 'build' unless Dir.exists? 'build'
   Dir.chdir 'build' do
     system 'cfx xpi'
   end
