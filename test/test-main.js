@@ -1,7 +1,6 @@
 const { Holmsie } = require('main');
 
 exports['test holmse should be disabled by default'] = function(test) {
-  console.log(require('self').data.url('holmes-debug'));
   test.assertEqual(new Holmsie().enabled, false);
 };
 
