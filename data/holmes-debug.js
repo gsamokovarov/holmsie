@@ -1,3 +1,5 @@
+'use strict';
+
 // Collects all of the subframes of a window.
 const collectFrames = function(window) {
   let result = [window];
@@ -10,11 +12,11 @@ const collectFrames = function(window) {
   return result;
 };
 
-self.on('click', function() {
+self.on('click', function(node, action) {
   let frames = collectFrames(unsafeWindow.top);
 
   for (let i = 0, len = frames.length; i < len; i++) {
-    $('html', frames[i].document).toggleClass('holmes-debug');
+    $('html', frames[i].document)[action + 'Class']('holmes-debug');
   }
 
   self.postMessage('trigger');

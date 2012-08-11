@@ -11,6 +11,10 @@ task :build do
   end
 end
 
+task :test do
+  system 'cfx --verbose test'
+end
+
 task :run do
   system 'cfx run'
 end
