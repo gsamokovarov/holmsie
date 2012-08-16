@@ -16,7 +16,13 @@ self.on('click', function(node, action) {
   let frames = collectFrames(unsafeWindow.top);
 
   for (let i = 0, len = frames.length; i < len; i++) {
-    $('html', frames[i].document)[action + 'Class']('holmes-debug');
+    try {
+      $('html', frames[i].document)[action + 'Class']('holmes-debug');
+    } catch (exc) {
+      // We are probably accessing frame on a different domain, there is
+      // nothing we can do about it, so just log it, if someone cares.
+      console.error(String(exc));
+    }
   }
 
   self.postMessage('trigger');

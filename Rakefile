@@ -1,3 +1,11 @@
+unless Dir.respond_to? :exists?
+  class << Dir
+    def exists?(path)
+      File.exists?(path)
+    end
+  end
+end
+
 task :env do
   Dir.chdir 'addon-sdk' do
     system 'exec $SHELL --init-file bin/activate'
