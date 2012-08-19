@@ -1,28 +1,28 @@
-unless Dir.respond_to? :exists?
-  class << Dir
-    def exists?(path)
-      File.exists?(path)
-    end
+class << Dir
+  def exists?(path)
+    File.exists? path
   end
-end
+end unless Dir.respond_to? :exists?
 
 task :env do
   Dir.chdir 'addon-sdk' do
-    system 'exec $SHELL --init-file bin/activate'
+    system 'bin/activate'
   end
 end
 
-task :build do
+task :build => :env do
   Dir.mkdir 'build' unless Dir.exists? 'build'
   Dir.chdir 'build' do
     system 'cfx xpi'
   end
 end
 
-task :test do
+task :test => :env do
   system 'cfx --verbose test'
 end
 
-task :run do
+task :run => :env do
   system 'cfx run'
 end
+
+task :default => :run
