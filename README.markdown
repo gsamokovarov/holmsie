@@ -12,7 +12,7 @@ Installation
 
 Holmsie can be installed from its [Mozilla add-on page][ad].
 
-It can also be built from the source with the following steps.
+It can also be built from the source with the following commands:
 
     $ git clone --recursive https://github.com/gsamokovarov/holmsie.git
     $ cd holmsie && rake build
@@ -36,7 +36,7 @@ License
 -------
 
 * Holmsie is licensed under [MPL 2.0][mp].
-* Holmse is licensed under [GPL][gp].
+* Holmes is licensed under [GPL][gp].
 * jQuery is licensed under [MIT][mt].
 
 [hs]: http://red-root.com/sandbox/holmes/
